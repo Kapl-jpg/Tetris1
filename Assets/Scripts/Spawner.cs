@@ -16,11 +16,6 @@ public class Spawner : MonoBehaviour
         obj.transform.parent = parentObj.transform;
     }
 
-    private void FindObj()
-    {
-
-    }
-
     private void Update()
     {
         _blocks = GameObject.FindGameObjectsWithTag("Tetromino");
@@ -39,7 +34,6 @@ public class Spawner : MonoBehaviour
     {
         obj = Instantiate(tetromino[_random], spawnPoint, Quaternion.identity);
         obj.transform.parent = parentObj.transform;
-        FindObj();
         gameObject.GetComponent<Score>().rowMinus = 0;
     }
 }
