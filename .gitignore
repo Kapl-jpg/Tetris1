@@ -34,7 +34,3 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
-Tetris2.0/.idea/
-Tetris2.0/ProjectSettings/ProjectVersion.txt
-Tetris2.0/Assets/Plugins/Editor/JetBrains/JetBrains.Rider.Unity.Editor.Plugin.Repacked.dll
-Tetris2.0/Logs/
