@@ -34,33 +34,6 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
-Tetris2.0/.idea/.idea.Tetris2.0/riderModule.iml
-Tetris2.0/.idea/.idea.Tetris2.0/.idea/workspace.xml
-Tetris2.0/.idea/.idea.Tetris2.0/.idea/projectSettingsUpdater.xml
-Tetris2.0/.idea/.idea.Tetris2.0/.idea/modules.xml
-Tetris2.0/.idea/.idea.Tetris2.0/.idea/misc.xml
-Tetris2.0/.idea/.idea.Tetris2.0/.idea/indexLayout.xml
-Tetris2.0/.idea/.idea.Tetris2.0/.idea/encodings.xml
-Tetris2.0/.idea/.idea.Tetris2.0/.idea/contentModel.xml
-Tetris2.0/.idea/.idea.Tetris2.0/.idea/indexLayout.xml
-Tetris2.0/.idea/.idea.Tetris2.0/.idea/misc.xml
-Tetris2.0/.idea/.idea.Tetris2.0/.idea/modules.xml
-Tetris2.0/.idea/.idea.Tetris2.0/.idea/projectSettingsUpdater.xml
-Tetris2.0/.idea/.idea.Tetris2.0/.idea/workspace.xml
-Tetris2.0/.idea/.idea.Tetris2.0/riderModule.iml
-Tetris2.0/ProjectSettings/ProjectVersion.txt
+Tetris2.0/.idea/
 Tetris2.0/Assets/Plugins/Editor/JetBrains/JetBrains.Rider.Unity.Editor.Plugin.Repacked.dll
-Tetris2.0/Assets/Tetromino/Duplicate/I Variant.prefab
-Tetris2.0/Assets/Tetromino/Duplicate/I Variant.prefab.meta
-Tetris2.0/Assets/Tetromino/Duplicate/J Variant.prefab
-Tetris2.0/Assets/Tetromino/Duplicate/L Variant.prefab
-Tetris2.0/Assets/Tetromino/Duplicate/L Variant.prefab.meta
-Tetris2.0/Assets/Tetromino/Duplicate/O Variant.prefab
-Tetris2.0/Assets/Tetromino/Duplicate/S Variant.prefab
-Tetris2.0/Assets/Tetromino/Duplicate/O Variant.prefab.meta
-Tetris2.0/Assets/Tetromino/Duplicate/T Variant.prefab
-Tetris2.0/Assets/Tetromino/Duplicate/S Variant.prefab.meta
-Tetris2.0/Assets/Tetromino/Duplicate/T Variant.prefab.meta
-Tetris2.0/Assets/Tetromino/Duplicate/Z Variant.prefab.meta
-Tetris2.0/Assets/Tetromino/Duplicate/Z Variant.prefab
-Tetris2.0/Assets/Tetromino/Duplicate/J Variant.prefab.meta
+Tetris2.0/Assets/Tetromino/
