@@ -2,20 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fa8b9b07-c260-434a-8d58-f6bc89899eb4" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Tetris2.0/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tetris2.0/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Tetris2.0/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tetris2.0/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Duplicate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Duplicate.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Score.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Score.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Spawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Spawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TetrominoMove.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TetrominoMove.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tetromino/Duplicate.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tetromino/Duplicate.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tetromino/I.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tetromino/I.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tetromino/J.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tetromino/J.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tetromino/L.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tetromino/L.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tetromino/O.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tetromino/O.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tetromino/S.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tetromino/S.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tetromino/T.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tetromino/T.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tetromino/Z.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tetromino/Z.prefab" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
