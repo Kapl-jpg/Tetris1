@@ -1,12 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fa8b9b07-c260-434a-8d58-f6bc89899eb4" name="Default Changelist" comment="" />
+    <list default="true" id="fa8b9b07-c260-434a-8d58-f6bc89899eb4" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Tetris2.0/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tetris2.0/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Duplicate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Duplicate.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Score.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Score.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Spawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Spawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TetrominoMove.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TetrominoMove.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tetromino/Duplicate.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tetromino/Duplicate/I Variant.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tetromino/Duplicate/I Variant.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tetromino/Duplicate/J Variant.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tetromino/Duplicate/J Variant.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tetromino/Duplicate/L Variant.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tetromino/Duplicate/L Variant.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tetromino/Duplicate/O Variant.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tetromino/Duplicate/O Variant.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tetromino/Duplicate/S Variant.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tetromino/Duplicate/S Variant.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tetromino/Duplicate/T Variant.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tetromino/Duplicate/T Variant.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tetromino/Duplicate/Z Variant.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tetromino/Duplicate/Z Variant.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tetromino/I.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tetromino/I.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tetromino/J.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tetromino/J.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tetromino/L.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tetromino/L.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tetromino/O.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tetromino/O.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tetromino/S.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tetromino/S.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tetromino/T.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tetromino/T.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tetromino/Z.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tetromino/Z.prefab" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Score.cs" root0="FORCE_HIGHLIGHTING" />
@@ -20,17 +52,19 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Border.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Duplicate.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Spawner.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/TetrominoMove.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Score.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/TetrominoMove.cs" />
       </list>
     </option>
   </component>
   <component name="ProjectId" id="1TukfGISRlmoYhVceOSFNCz37Bg" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="Rider.DefaultBreakpoints.AreToggled" value="true" />
     <property name="Rider.ProjectViewActivator.IsNotFirstRun" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -79,6 +113,13 @@
       <workItem from="1574684435916" duration="15659000" />
       <workItem from="1574700754137" duration="3874000" />
       <workItem from="1574772279124" duration="10283000" />
+      <workItem from="1575358684066" duration="7947000" />
+      <workItem from="1575436973527" duration="7978000" />
+      <workItem from="1575624432892" duration="3423000" />
+      <workItem from="1575696902611" duration="14376000" />
+      <workItem from="1575732643624" duration="6085000" />
+      <workItem from="1575799833547" duration="866000" />
+      <workItem from="1575807787372" duration="105000" />
     </task>
     <servers />
   </component>
@@ -87,6 +128,19 @@
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="true" />
   </component>
