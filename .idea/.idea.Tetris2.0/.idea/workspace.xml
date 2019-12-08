@@ -8,21 +8,7 @@
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Score.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Score.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Spawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Spawner.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/TetrominoMove.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TetrominoMove.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tetromino/Duplicate.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tetromino/Duplicate/I Variant.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tetromino/Duplicate/I Variant.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tetromino/Duplicate/J Variant.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tetromino/Duplicate/J Variant.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tetromino/Duplicate/L Variant.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tetromino/Duplicate/L Variant.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tetromino/Duplicate/O Variant.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tetromino/Duplicate/O Variant.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tetromino/Duplicate/S Variant.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tetromino/Duplicate/S Variant.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tetromino/Duplicate/T Variant.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tetromino/Duplicate/T Variant.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tetromino/Duplicate/Z Variant.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tetromino/Duplicate/Z Variant.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tetromino/Duplicate.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tetromino/Duplicate.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Tetromino/I.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tetromino/I.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Tetromino/J.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tetromino/J.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Tetromino/L.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tetromino/L.prefab" afterDir="false" />
@@ -120,6 +106,7 @@
       <workItem from="1575732643624" duration="6085000" />
       <workItem from="1575799833547" duration="866000" />
       <workItem from="1575807787372" duration="105000" />
+      <workItem from="1575808451618" duration="599000" />
     </task>
     <servers />
   </component>
