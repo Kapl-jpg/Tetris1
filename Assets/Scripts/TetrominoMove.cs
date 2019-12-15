@@ -1,13 +1,16 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class TetrominoMove : MonoBehaviour
 {
-    private GameObject _controllerGameObj;
+    public GameObject controllerGameObj;
+
     [SerializeField] private Vector3 rotatePoint;
+
     [SerializeField] private float speed;
     [SerializeField] private float stickingTime;
 
-    static Transform[,] grid = new Transform[W, H];
+    private static Transform[,] grid = new Transform[W, H];
 
     private const int W = 10;
     private const int H = 20;
@@ -18,16 +21,26 @@ public class TetrominoMove : MonoBehaviour
 
     private int _roundToIntX;
     private int _roundToIntY;
-    private int angle = 90;
 
-    public void Start()
+    private const int Angle = 90;
+    private int rotationRatio;
+
+    private bool rotateI;
+    public bool tetrominoI;
+    public bool twoRotate;
+    private bool _rotate = true;
+
+    Score _scoreScript;
+
+    private void Start()
     {
-        _controllerGameObj = GameObject.FindGameObjectWithTag("Player");
+        _scoreScript = controllerGameObj.GetComponent<Score>();
     }
 
-    public void Update()
+    private void Update()
     {
-        speed = _controllerGameObj.GetComponent<Score>().speed;
+
+        speed = _scoreScript.speed;
         for (int i = 0; i < H; i++)
         {
             if (FullLine(i))
@@ -41,7 +54,7 @@ public class TetrominoMove : MonoBehaviour
         Controller();
     }
 
-    bool FullLine(int y)
+    private bool FullLine(int y)
     {
         for (int x = 0; x < W; x++)
         {
@@ -54,18 +67,18 @@ public class TetrominoMove : MonoBehaviour
         return true;
     }
 
-    bool LoseGame()
+    private bool LoseGame()
     {
-        if (transform.position.y > H - 6 && !Border())
+        if (transform.position.y > controllerGameObj.GetComponent<Spawner>().spawnPoint.y - 4 && !Border())
         {
-            _controllerGameObj.GetComponent<Score>().lose = true;
+            controllerGameObj.GetComponent<Score>().lose = true;
             return true;
         }
 
         return false;
     }
 
-    void RowDown(int i)
+    private void RowDown(int i)
     {
         for (int y = i; y < H; y++)
         {
@@ -81,20 +94,20 @@ public class TetrominoMove : MonoBehaviour
         }
     }
 
-    void DeleteRow(int y)
+    private void DeleteRow(int y)
     {
-        _controllerGameObj.GetComponent<Score>().rows++;
-        _controllerGameObj.GetComponent<Score>().rowMinus++;
+        _scoreScript.rows++;
+        _scoreScript.rowMinus++;
         for (int x = 0; x < W; ++x)
         {
             Destroy(grid[x, y].gameObject);
             grid[x, y] = null;
         }
 
-        _controllerGameObj.GetComponent<Score>().add = true;
+        _scoreScript.add = true;
     }
 
-    void VerticalMove()
+    private void VerticalMove()
     {
         _time += Time.deltaTime;
         if (_time * _addSpeed > 0.8f / speed)
@@ -109,41 +122,41 @@ public class TetrominoMove : MonoBehaviour
             foreach (Transform child in transform)
             {
                 _roundToIntX = Mathf.RoundToInt(child.position.x);
-                _roundToIntY = Mathf.RoundToInt(child.transform.position.y);
+                _roundToIntY = Mathf.RoundToInt(child.position.y);
                 grid[_roundToIntX, _roundToIntY] = child;
             }
 
             this.enabled = false;
             if (!LoseGame())
             {
-                _controllerGameObj.GetComponent<Spawner>().InstantiateObj();
-                _controllerGameObj.GetComponent<Duplicate>().NextObj();
+                controllerGameObj.GetComponent<Spawner>().InstantiateObj();
+                controllerGameObj.GetComponent<Duplicate>().NextObj();
             }
         }
     }
 
-    void Left()
+    private void Left()
     {
         transform.position += Vector3.left;
         if (!Border())
             transform.position += Vector3.right;
     }
 
-    void Right()
+    private void Right()
     {
         transform.position += Vector3.right;
         if (!Border())
             transform.position += Vector3.left;
     }
 
-    void Down()
+    private void Down()
     {
         transform.position += Vector3.down;
         if (!Border())
             transform.position += Vector3.up;
     }
 
-    void Controller()
+    private void Controller()
     {
         if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
@@ -193,25 +206,57 @@ public class TetrominoMove : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            transform.RotateAround(transform.TransformPoint(rotatePoint), Vector3.forward, angle);
+            if (twoRotate)
+            {
+                if (tetrominoI && transform.position.x >= W / 2)
+                    rotateI = true;
+                else
+                    rotateI = false;
+                if (!rotateI)
+                {
+                    if (_rotate)
+                    {
+                        transform.RotateAround(transform.TransformPoint(rotatePoint), Vector3.forward, Angle);
+                        _rotate = false;
+                    }
+                    else
+                    {
+                        transform.RotateAround(transform.TransformPoint(rotatePoint), Vector3.forward, -Angle);
+                        _rotate = true;
+                    }
+                }
+                else
+                {
+                    if (_rotate)
+                    {
+                        transform.RotateAround(transform.TransformPoint(rotatePoint), Vector3.forward, -Angle);
+                        _rotate = false;
+                    }
+                    else
+                    {
+                        transform.RotateAround(transform.TransformPoint(rotatePoint), Vector3.forward, Angle);
+                        _rotate = true;
+                    }
+                }
+            }
+            else
+            {
+                transform.RotateAround(transform.TransformPoint(rotatePoint), Vector3.forward, Angle);
+            }
+
             if (!Border())
             {
-
-                transform.RotateAround(transform.TransformPoint(rotatePoint), Vector3.forward, -angle);
-                if (_controllerGameObj.GetComponent<Spawner>().obj.name != "I(Clone)")
+                if (_roundToIntX < 0)
                 {
-                    if (_roundToIntX < 0)
-                    {
-                        transform.position += Vector3.right;
-                    }
-                    else if (_roundToIntX >= W)
-                    {
-                        transform.position += Vector3.left;
-                    }
-                    else if (_roundToIntY >= H)
-                    {
-                        transform.position += Vector3.down;
-                    }
+                    transform.position += Vector3.right;
+                }
+                else if (_roundToIntX >= W)
+                {
+                    transform.position += Vector3.left;
+                }
+                else if (_roundToIntY >= H)
+                {
+                    transform.position += Vector3.down;
                 }
             }
         }
@@ -231,15 +276,14 @@ public class TetrominoMove : MonoBehaviour
         return true;
     }
 
-    bool Border()
+    private bool Border()
     {
         foreach (Transform child in transform)
         {
             _roundToIntX = Mathf.RoundToInt(child.position.x);
-            _roundToIntY = Mathf.RoundToInt(child.transform.position.y);
+            _roundToIntY = Mathf.RoundToInt(child.position.y);
             if (_roundToIntX < 0 || _roundToIntX >= W ||
-                _roundToIntY < 0 ||
-                _roundToIntY >= H)
+                _roundToIntY < 0 || _roundToIntY >= H)
             {
                 return false;
             }

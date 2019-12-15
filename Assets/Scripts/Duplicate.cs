@@ -1,37 +1,38 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class Duplicate : MonoBehaviour
 {
-    public Vector2 spawn;
+    [SerializeField]
+    private Vector2 spawn;
     public int randomNumber;
-    public GameObject[] tetromino;
+    [SerializeField]
+    private GameObject[] tetromino;
     private GameObject _obj;
 
     public void NextObj()
     {
         Destruction();
-        RandomFigure();
+        RandomTetromino(); 
         InstantiateObject();
     }
 
-    void Start()
+    private void Start()
     {
-        RandomFigure();
+        RandomTetromino();
         InstantiateObject();
     }
-
-    void Destruction()
+    private void Destruction()
     {
         Destroy(_obj);
     }
-
-    void RandomFigure()
+    private void RandomTetromino()
     {
         randomNumber = Random.Range(0, tetromino.Length);
     }
 
-    void InstantiateObject()
+    private void InstantiateObject()
     {
         _obj = Instantiate(tetromino[randomNumber], spawn, Quaternion.identity);
         _obj.GetComponent<TetrominoMove>().enabled = false;

@@ -629,7 +629,7 @@ GameObject:
   - component: {fileID: 684474827}
   m_Layer: 0
   m_Name: Controller
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -648,17 +648,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loseText: {fileID: 1516891900}
   Continue: {fileID: 1287292102}
-  plusKey: 43
-  minusKey: 45
+  plusKey: 270
+  minusKey: 269
   scoreText: {fileID: 1269398715}
   speedText: {fileID: 737835446}
   fullLine: {fileID: 422161728}
   speed: 1
   add: 0
   lose: 0
-  row: 64000000c8000000900100008403000000000000
   rowMinus: 0
-  granicaScore: 1
+  addScore: 640000002c010000f401000084030000
   rows: 0
 --- !u!4 &684474826
 Transform:

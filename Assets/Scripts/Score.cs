@@ -4,22 +4,28 @@ using  UnityEngine.SceneManagement;
 
 public class Score : MonoBehaviour
 {
-    [SerializeField] private GameObject loseText, Continue;
-    [SerializeField] private KeyCode plusKey, minusKey;
-    [SerializeField] private Text scoreText, speedText, fullLine;
+    [SerializeField] private GameObject loseText;
+    [SerializeField] private GameObject Continue;
+    [SerializeField] private KeyCode plusKey;
+    [SerializeField] private KeyCode minusKey;
+    [SerializeField] private Text scoreText;
+    [SerializeField] private Text speedText;
+    [SerializeField] private Text fullLine;
     public float speed = 1;
 
     public bool add;
     public bool lose;
 
     public int rowMinus;
-    private int _granicaScore = 1;
+    [SerializeField] private int[] addScore;
+
+    private int _limitScore = 1;
 
     public int rows;
     private int _score;
     private int _currentScore;
 
-    void Update()
+    private void Update()
     {
         if (lose)
         {
@@ -32,11 +38,11 @@ public class Score : MonoBehaviour
             }
         }
 
-        _currentScore = _granicaScore * 1000 - _score;
+        _currentScore = _limitScore * 1000 - _score;
         if (_score >= _currentScore || Input.GetKeyDown(plusKey))
         {
             speed = speed + 0.1f;
-            _granicaScore++;
+            _limitScore++;
         }
 
         if (speed > 0)
@@ -54,25 +60,7 @@ public class Score : MonoBehaviour
         scoreText.text = "Score:\n" + _score;
         if (add)
         {
-            switch (rowMinus)
-            {
-                case 0:
-                    _score += 0;
-                    break;
-                case 1:
-                    _score += 100;
-                    break;
-                case 2:
-                    _score += 200;
-                    break;
-                case 3:
-                    _score += 400;
-                    break;
-                case 4:
-                    _score += 900;
-                    break;
-            }
-
+            _score += addScore[rowMinus - 1];
             add = false;
         }
     }
