@@ -6,24 +6,27 @@ public class Score : MonoBehaviour
 {
     [SerializeField] private GameObject loseText;
     [SerializeField] private GameObject Continue;
+
     [SerializeField] private KeyCode plusKey;
     [SerializeField] private KeyCode minusKey;
+
     [SerializeField] private Text scoreText;
     [SerializeField] private Text speedText;
     [SerializeField] private Text fullLine;
-    public float speed = 1;
 
-    public bool add;
-    public bool lose;
+    [HideInInspector] public float speed = 1;
 
-    public int rowMinus;
+    [HideInInspector] public bool add;
+    [HideInInspector] public bool lose;
+
+    [HideInInspector] public int rowMinus;
     [SerializeField] private int[] addScore;
 
-    private int _limitScore = 1;
+    private int m_limitScore = 1;
 
-    public int rows;
-    private int _score;
-    private int _currentScore;
+    [HideInInspector] public int rows;
+    private int m_score;
+    private int m_currentScore;
 
     private void Update()
     {
@@ -38,11 +41,11 @@ public class Score : MonoBehaviour
             }
         }
 
-        _currentScore = _limitScore * 1000 - _score;
-        if (_score >= _currentScore || Input.GetKeyDown(plusKey))
+        m_currentScore = m_limitScore * 1000 - m_score;
+        if (m_score >= m_currentScore || Input.GetKeyDown(plusKey))
         {
             speed = speed + 0.1f;
-            _limitScore++;
+            m_limitScore++;
         }
 
         if (speed > 0)
@@ -57,10 +60,10 @@ public class Score : MonoBehaviour
 
         fullLine.text = "The filled lines:\n" + rows;
         speedText.text = "Speed:\nX" + Mathf.Round(speed * 10) / 10;
-        scoreText.text = "Score:\n" + _score;
+        scoreText.text = "Score:\n" + m_score;
         if (add)
         {
-            _score += addScore[rowMinus - 1];
+            m_score += addScore[rowMinus - 1];
             add = false;
         }
     }

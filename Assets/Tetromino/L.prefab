@@ -127,12 +127,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controllerGameObj: {fileID: 0}
-  Tetrominonotrotate:
-  - {fileID: 1231160574661335319, guid: ee969aeb4154d6e4b956b11655c9ed90, type: 3}
-  - {fileID: 8931303469654467772, guid: 849ea9b6581c6994288319c8d0c87a55, type: 3}
   rotatePoint: {x: 0, y: 0, z: 0}
   speed: 1
   stickingTime: 0.12
+  borderLose: {x: 1, y: 0}
+  tetrominoI: 0
+  twoRotate: 0
 --- !u!1 &1670014195782922431
 GameObject:
   m_ObjectHideFlags: 0

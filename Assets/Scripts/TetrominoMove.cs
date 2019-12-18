@@ -1,9 +1,8 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class TetrominoMove : MonoBehaviour
 {
-    public GameObject controllerGameObj;
+    [HideInInspector] public GameObject controllerGameObj;
 
     [SerializeField] private Vector3 rotatePoint;
 
@@ -15,32 +14,33 @@ public class TetrominoMove : MonoBehaviour
     private const int W = 10;
     private const int H = 20;
 
-    private float _time;
-    private float _timer;
-    private float _addSpeed;
-
-    private int _roundToIntX;
-    private int _roundToIntY;
-
-    private const int Angle = 90;
-    private int rotationRatio;
-
-    private bool rotateI;
-    public bool tetrominoI;
-    public bool twoRotate;
-    private bool _rotate = true;
-
-    Score _scoreScript;
+    [SerializeField] private Vector2 borderLose = new Vector2(1, 0);
+    private float m_time;
+    private float m_timer;
+    private float m_addSpeed = 1;
+    private int m_roundToIntX;
+    private int m_roundToIntY;
+    private const int ANGLE = 90;
+    private int m_turn;
+    [HideInInspector] public bool tetrominoI;
+    [HideInInspector] public bool twoRotate;
+    private bool m_rotate = true;
+    private bool m_returnRotation;
+    private int m_speedX;
+    private Score m_scoreScript;
+    private Spawner m_spawnerScript;
+    private Duplicate m_duplicateScript;
 
     private void Start()
     {
-        _scoreScript = controllerGameObj.GetComponent<Score>();
+        m_duplicateScript = controllerGameObj.GetComponent<Duplicate>();
+        m_scoreScript = controllerGameObj.GetComponent<Score>();
+        m_spawnerScript = controllerGameObj.GetComponent<Spawner>();
     }
 
     private void Update()
     {
-
-        speed = _scoreScript.speed;
+        speed = m_scoreScript.speed;
         for (int i = 0; i < H; i++)
         {
             if (FullLine(i))
@@ -69,10 +69,15 @@ public class TetrominoMove : MonoBehaviour
 
     private bool LoseGame()
     {
-        if (transform.position.y > controllerGameObj.GetComponent<Spawner>().spawnPoint.y - 4 && !Border())
+        foreach (Transform child in transform)
         {
-            controllerGameObj.GetComponent<Score>().lose = true;
-            return true;
+            if (child.position.y > m_spawnerScript.spawnPoint.y - borderLose.y
+                && Border() && child.position.x < m_spawnerScript.spawnPoint.x + borderLose.x &&
+                child.position.x > m_spawnerScript.spawnPoint.x - borderLose.x)
+            {
+                m_scoreScript.lose = true;
+                return true;
+            }
         }
 
         return false;
@@ -96,24 +101,24 @@ public class TetrominoMove : MonoBehaviour
 
     private void DeleteRow(int y)
     {
-        _scoreScript.rows++;
-        _scoreScript.rowMinus++;
+        m_scoreScript.rows++;
+        m_scoreScript.rowMinus++;
         for (int x = 0; x < W; ++x)
         {
             Destroy(grid[x, y].gameObject);
             grid[x, y] = null;
         }
 
-        _scoreScript.add = true;
+        m_scoreScript.add = true;
     }
 
     private void VerticalMove()
     {
-        _time += Time.deltaTime;
-        if (_time * _addSpeed > 0.8f / speed)
+        m_time += Time.deltaTime;
+        if (m_time * m_addSpeed > 0.8f / speed)
         {
             transform.position += Vector3.down;
-            _time = 0;
+            m_time = 0;
         }
 
         if (!Border())
@@ -121,174 +126,191 @@ public class TetrominoMove : MonoBehaviour
             transform.position += Vector3.up;
             foreach (Transform child in transform)
             {
-                _roundToIntX = Mathf.RoundToInt(child.position.x);
-                _roundToIntY = Mathf.RoundToInt(child.position.y);
-                grid[_roundToIntX, _roundToIntY] = child;
+                m_roundToIntX = Mathf.RoundToInt(child.position.x);
+                m_roundToIntY = Mathf.RoundToInt(child.position.y);
+                grid[m_roundToIntX, m_roundToIntY] = child;
             }
 
-            this.enabled = false;
+            enabled = false;
             if (!LoseGame())
             {
-                controllerGameObj.GetComponent<Spawner>().InstantiateObj();
-                controllerGameObj.GetComponent<Duplicate>().NextObj();
+                m_spawnerScript.InstantiateObj(m_duplicateScript.randomNumber);
+                m_duplicateScript.NextObj();
             }
         }
     }
 
-    private void Left()
+    void Translate(float speedX)
     {
-        transform.position += Vector3.left;
+        transform.position += Vector3.right * speedX;
         if (!Border())
-            transform.position += Vector3.right;
+            transform.position += Vector3.left * speedX;
     }
 
-    private void Right()
+    void Rotate(int angle)
     {
-        transform.position += Vector3.right;
-        if (!Border())
-            transform.position += Vector3.left;
-    }
-
-    private void Down()
-    {
-        transform.position += Vector3.down;
-        if (!Border())
-            transform.position += Vector3.up;
+        transform.RotateAround(transform.TransformPoint(rotatePoint), Vector3.forward, angle);
     }
 
     private void Controller()
     {
-        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            Left();
-        }
-
-        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown((KeyCode.RightArrow)))
-        {
-            Right();
-        }
-
-        if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown((KeyCode.DownArrow)))
-        {
-            Down();
-        }
-
         if (time_sticking())
         {
+
             if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
             {
-                Left();
+                m_speedX = -1;
             }
 
             if (Input.GetKey(KeyCode.D) || Input.GetKey((KeyCode.RightArrow)))
             {
-                Right();
+                m_speedX = 1;
             }
 
             if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
             {
-                _addSpeed = 12;
-            }
-            else
-            {
-                _addSpeed = 1;
+                m_addSpeed = 12;
             }
 
-            _timer = 0;
+            m_timer = 0;
+            Translate(m_speedX);
+        }
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                m_speedX = -1;
+                Translate(m_speedX);
+            }
+
+            if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown((KeyCode.RightArrow)))
+            {
+                m_speedX = 1;
+                Translate(m_speedX);
+            }
         }
 
         if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.S) ||
             Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.RightArrow) ||
             Input.GetKeyUp(KeyCode.DownArrow))
         {
-            _timer = 0;
+            m_speedX = 0;
+            m_timer = 0;
+            m_addSpeed = 1;
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if (twoRotate)
             {
-                if (tetrominoI && transform.position.x >= W / 2)
-                    rotateI = true;
-                else
-                    rotateI = false;
-                if (!rotateI)
+                if (tetrominoI)
                 {
-                    if (_rotate)
+                    if (transform.position.x > W / 2)
                     {
-                        transform.RotateAround(transform.TransformPoint(rotatePoint), Vector3.forward, Angle);
-                        _rotate = false;
+                        if (transform.rotation.z >= 0)
+                        {
+                            m_rotate = false;
+                        }
                     }
                     else
                     {
-                        transform.RotateAround(transform.TransformPoint(rotatePoint), Vector3.forward, -Angle);
-                        _rotate = true;
+                        if (transform.rotation.z <= 0)
+                        {
+                            m_rotate = true;
+                        }
                     }
+                }
+
+                if (m_rotate)
+                {
+                    m_turn = ANGLE;
+                    m_returnRotation = true;
+                    m_rotate = false;
                 }
                 else
                 {
-                    if (_rotate)
-                    {
-                        transform.RotateAround(transform.TransformPoint(rotatePoint), Vector3.forward, -Angle);
-                        _rotate = false;
-                    }
-                    else
-                    {
-                        transform.RotateAround(transform.TransformPoint(rotatePoint), Vector3.forward, Angle);
-                        _rotate = true;
-                    }
+                    m_turn = -ANGLE;
+                    m_returnRotation = false;
+                    m_rotate = true;
                 }
             }
             else
             {
-                transform.RotateAround(transform.TransformPoint(rotatePoint), Vector3.forward, Angle);
+                m_turn = ANGLE;
+                m_returnRotation = true;
             }
 
-            if (!Border())
+            Rotate(m_turn);
+            if (!Border() && CanRotate())
             {
-                if (_roundToIntX < 0)
+                if (m_roundToIntX < 0)
                 {
                     transform.position += Vector3.right;
                 }
-                else if (_roundToIntX >= W)
+                else if (m_roundToIntX >= W)
                 {
                     transform.position += Vector3.left;
                 }
-                else if (_roundToIntY >= H)
+                else if (m_roundToIntY >= H)
                 {
                     transform.position += Vector3.down;
                 }
             }
+
+            if (!Border() && !CanRotate())
+            {
+                BackRotation(m_returnRotation);
+            }
         }
+    }
+
+    void BackRotation(bool back)
+    {
+        if (back)
+            transform.RotateAround(transform.TransformPoint(rotatePoint), Vector3.forward, -ANGLE);
+        else
+            transform.RotateAround(transform.TransformPoint(rotatePoint), Vector3.forward, ANGLE);
+    }
+
+    bool CanRotate()
+    {
+        if (m_roundToIntX < 0 || m_roundToIntX >= W || m_roundToIntY >= H)
+        {
+            return true;
+        }
+
+        return false;
     }
 
     private bool time_sticking()
     {
         if (Input.anyKey)
         {
-            _timer += Time.deltaTime;
-            if (_timer < stickingTime)
+            m_timer += Time.deltaTime;
+            if (m_timer > stickingTime)
             {
-                return false;
+                return true;
             }
         }
 
-        return true;
+        return false;
     }
 
     private bool Border()
     {
         foreach (Transform child in transform)
         {
-            _roundToIntX = Mathf.RoundToInt(child.position.x);
-            _roundToIntY = Mathf.RoundToInt(child.position.y);
-            if (_roundToIntX < 0 || _roundToIntX >= W ||
-                _roundToIntY < 0 || _roundToIntY >= H)
+
+            m_roundToIntX = Mathf.RoundToInt(child.position.x);
+            m_roundToIntY = Mathf.RoundToInt(child.position.y);
+            if (m_roundToIntX < 0 || m_roundToIntX >= W ||
+                m_roundToIntY < 0 || m_roundToIntY >= H)
             {
                 return false;
             }
 
-            if (grid[_roundToIntX, _roundToIntY] != null)
+            if (grid[m_roundToIntX, m_roundToIntY] != null &&
+                grid[m_roundToIntX, m_roundToIntY].parent != transform)
             {
                 return false;
             }
