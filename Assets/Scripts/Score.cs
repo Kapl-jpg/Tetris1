@@ -4,36 +4,60 @@ using  UnityEngine.SceneManagement;
 
 public class Score : MonoBehaviour
 {
-    [SerializeField] private GameObject loseText;
-    [SerializeField] private GameObject Continue;
+    [SerializeField] private GameObject m_loseText;
+    [SerializeField] private GameObject m_continue;
 
-    [SerializeField] private KeyCode plusKey;
-    [SerializeField] private KeyCode minusKey;
+    [SerializeField] private KeyCode m_plusKey;
+    [SerializeField] private KeyCode m_minusKey;
 
-    [SerializeField] private Text scoreText;
-    [SerializeField] private Text speedText;
-    [SerializeField] private Text fullLine;
+    [SerializeField] private Text m_scoreText;
+    [SerializeField] private Text m_speedText;
+    [SerializeField] private Text m_fullLine;
 
-    [HideInInspector] public float speed = 1;
+    private float m_speed = 1;
 
-    [HideInInspector] public bool add;
-    [HideInInspector] public bool lose;
+    public float Speed
+    {
+        get => m_speed;
+    }
 
-    [HideInInspector] public int rowMinus;
+    public bool add;
+    private bool m_lose;
+
+    public bool Lose
+    {
+        set => m_lose = value;
+    }
+
+    private int m_rowMinus;
+
+    public int RowMinus
+    {
+        get => m_rowMinus;
+        set => m_rowMinus = value;
+    }
+
     [SerializeField] private int[] addScore;
 
     private int m_limitScore = 1;
 
-    [HideInInspector] public int rows;
+    private int m_rows;
+
+    public int Rows
+    {
+        get => m_rows;
+        set => m_rows = value;
+    }
+
     private int m_score;
     private int m_currentScore;
 
     private void Update()
     {
-        if (lose)
+        if (m_lose)
         {
-            loseText.SetActive(true);
-            Continue.SetActive(true);
+            m_loseText.SetActive(true);
+            m_continue.SetActive(true);
             gameObject.GetComponent<Spawner>().enabled = false;
             if (Input.GetKey(KeyCode.Space))
             {
@@ -42,28 +66,28 @@ public class Score : MonoBehaviour
         }
 
         m_currentScore = m_limitScore * 1000 - m_score;
-        if (m_score >= m_currentScore || Input.GetKeyDown(plusKey))
+        if (m_score >= m_currentScore || Input.GetKeyDown(m_plusKey))
         {
-            speed = speed + 0.1f;
+            m_speed = m_speed + 0.1f;
             m_limitScore++;
         }
 
-        if (speed > 0)
+        if (m_speed > 0)
         {
-            if (Input.GetKeyDown(minusKey))
+            if (Input.GetKeyDown(m_minusKey))
             {
-                speed = speed - 0.1f;
+                m_speed = m_speed - 0.1f;
             }
         }
         else
-            speed = 0;
+            m_speed = 0;
 
-        fullLine.text = "The filled lines:\n" + rows;
-        speedText.text = "Speed:\nX" + Mathf.Round(speed * 10) / 10;
-        scoreText.text = "Score:\n" + m_score;
+        m_fullLine.text = "The filled lines:\n" + m_rows;
+        m_speedText.text = "Speed:\nX" + Mathf.Round(m_speed * 10) / 10;
+        m_scoreText.text = "Score:\n" + m_score;
         if (add)
         {
-            m_score += addScore[rowMinus - 1];
+            m_score += addScore[m_rowMinus - 1];
             add = false;
         }
     }

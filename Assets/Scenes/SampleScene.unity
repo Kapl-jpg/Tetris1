@@ -646,19 +646,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd28fcb1c2c8d144681788163db957f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loseText: {fileID: 1516891900}
-  Continue: {fileID: 1287292102}
-  plusKey: 270
-  minusKey: 269
-  scoreText: {fileID: 1269398715}
-  speedText: {fileID: 737835446}
-  fullLine: {fileID: 422161728}
-  speed: 1
+  m_loseText: {fileID: 1516891900}
+  m_continue: {fileID: 1287292102}
+  m_plusKey: 270
+  m_minusKey: 269
+  m_scoreText: {fileID: 1269398715}
+  m_speedText: {fileID: 737835446}
+  m_fullLine: {fileID: 422161728}
   add: 0
-  lose: 0
-  rowMinus: 0
   addScore: 640000002c010000f401000084030000
-  rows: 0
 --- !u!4 &684474826
 Transform:
   m_ObjectHideFlags: 0
@@ -685,9 +681,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9851c28e63c81e241bff3f0497e81422, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawn: {x: 11, y: 7}
-  randomNumber: 0
-  tetromino:
+  m_spawn: {x: 11, y: 8}
+  m_tetromino:
   - {fileID: 4155495636533302308, guid: e068b565c52804e4bba178b3cb504af4, type: 3}
   - {fileID: 7225384699193681692, guid: 3b517c87f93ea304e83f64a6557e07cf, type: 3}
   - {fileID: 407211971518627784, guid: bd95fcde4e60e2447b2f77d42b1cc383, type: 3}
@@ -707,8 +702,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c72431b1e26e584f8103539d447b695, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parentObj: {fileID: 7585783}
-  tetromino:
+  m_parentObj: {fileID: 7585783}
+  m_tetromino:
   - {fileID: 4155495636533302308, guid: e068b565c52804e4bba178b3cb504af4, type: 3}
   - {fileID: 7225384699193681692, guid: 3b517c87f93ea304e83f64a6557e07cf, type: 3}
   - {fileID: 407211971518627784, guid: bd95fcde4e60e2447b2f77d42b1cc383, type: 3}
@@ -716,8 +711,6 @@ MonoBehaviour:
   - {fileID: 8931303469654467772, guid: 849ea9b6581c6994288319c8d0c87a55, type: 3}
   - {fileID: 1638805229330303842, guid: b2d7e2b2d8263284ba8761f7c2e52516, type: 3}
   - {fileID: 1231160574661335319, guid: ee969aeb4154d6e4b956b11655c9ed90, type: 3}
-  obj: {fileID: 0}
-  spawnPoint: {x: 4, y: 18}
 --- !u!1001 &688401144
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1712,7 +1705,7 @@ GameObject:
   - component: {fileID: 1365061960}
   - component: {fileID: 1365061959}
   m_Layer: 5
-  m_Name: Figure
+  m_Name: NextTetromino
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -3,10 +3,22 @@ using Random = UnityEngine.Random;
 
 public class Duplicate : MonoBehaviour
 {
-    [SerializeField] private Vector2 spawn;
-    [HideInInspector] public int randomNumber;
-    [SerializeField] private GameObject[] tetromino;
+    [SerializeField] private Vector2 m_spawn;
+    private int m_randomNumber;
+    [SerializeField] private GameObject[] m_tetromino;
     private GameObject m_obj;
+    private bool m_lose;
+
+    public bool Lose
+    {
+        get => m_lose;
+        set => m_lose = value;
+    }
+
+    public int RandomNumber
+    {
+        get => m_randomNumber;
+    }
 
     public void NextObj()
     {
@@ -28,12 +40,12 @@ public class Duplicate : MonoBehaviour
 
     private void RandomTetromino()
     {
-        randomNumber = Random.Range(0, tetromino.Length);
+        m_randomNumber = Random.Range(0, m_tetromino.Length);
     }
 
     private void InstantiateObject()
     {
-        m_obj = Instantiate(tetromino[randomNumber], spawn, Quaternion.identity);
+        m_obj = Instantiate(m_tetromino[m_randomNumber], m_spawn, Quaternion.identity);
         m_obj.GetComponent<TetrominoMove>().enabled = false;
     }
 }

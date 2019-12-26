@@ -126,13 +126,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1570675c82a44464bb3ae8424972d011, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controllerGameObj: {fileID: 0}
-  rotatePoint: {x: 0, y: 0, z: 0}
-  speed: 1
-  stickingTime: 0.12
-  borderLose: {x: 1, y: 0}
-  tetrominoI: 0
-  twoRotate: 0
+  m_rotatePoint: {x: 0, y: 0, z: 0}
+  m_speed: 1
+  m_stickingTime: 0.12
+  m_tetrominoI: 0
+  m_twoRotate: 0
+  m_hightTetromino: 3
 --- !u!1 &1670014195782922431
 GameObject:
   m_ObjectHideFlags: 0
